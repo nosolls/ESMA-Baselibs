@@ -52,7 +52,7 @@ endif
 # ---------------
 
 ifeq ($(FC), nagfor)
-   FC_VERSION := $(shell $(FC) -V 2>&1 >/dev/null | awk -F" " '{ if(NR==1) print $$5,$$6,$$7}')
+   FC_VERSION := $(shell $(FC) --version 2>&1 >/dev/null | awk -F" " '{ if(NR==1) print $$5,$$6,$$7}')
    MPIFC_COMPILER := $(FC)
    MPIFC_VERSION := $(FC_VERSION)
 else
