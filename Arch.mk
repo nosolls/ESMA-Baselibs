@@ -61,11 +61,10 @@ ifeq ($(ARCH),Linux)
    CFLAGS := -fPIC 
    export CFLAGS
 
-   # Gentoo puts tiprc files in a weird place
-   ifneq (,$(wildcard /etc/gentoo-release))
-      INC_EXTRA += -I/usr/include/tirpc
-      LIB_EXTRA += -ltirpc
-   endif
+   
+   INC_EXTRA += -I/usr/include/tirpc
+   LIB_EXTRA += -ltirpc
+   
 
    ifeq ($(SITE),NCCS)
       ENABLE_GPFS = --enable-gpfs
