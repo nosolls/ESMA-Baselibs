@@ -61,9 +61,11 @@ ifeq ($(ARCH),Linux)
    CFLAGS := -fPIC 
    export CFLAGS
 
-   
-   INC_EXTRA += -I/usr/include/tirpc
-   LIB_EXTRA += -ltirpc
+   # fix for rpc
+   ifneq (,$(wildcard /usr/include/tirpc/.))
+      INC_EXTRA += -I/usr/include/tirpc
+      LIB_EXTRA += -ltirpc
+   endif
    
 
    ifeq ($(SITE),NCCS)
